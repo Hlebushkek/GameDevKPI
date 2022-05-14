@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class EnemyBaseState 
 {
     public EnemyStateManager owner;
-    abstract public void EnterState();
-    abstract public void UpdateState();
-    abstract public void OnCollisionEnter();
+    public abstract void EnterState();
+    public abstract void UpdateState();
+    public abstract void OnCollisionEnter();
 }

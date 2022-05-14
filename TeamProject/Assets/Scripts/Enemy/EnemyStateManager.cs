@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] private Vector2[] patrollPath;
+    [SerializeField] private int Weapon;
     private EnemyBaseState currentState;
     
     public EnemyPatrollingState PatrollingState;
