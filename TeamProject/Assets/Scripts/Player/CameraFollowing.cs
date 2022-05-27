@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class CameraFollowing : MonoBehaviour
 {
     private bool followPlayer = true;
     private Transform player;
     private PlayerMovement playerMovement;
     private Camera cam;
+
     private void Start()
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
@@ -15,19 +15,18 @@ public class CameraFollowing : MonoBehaviour
 
         cam = this.GetComponent<Camera>();
     }
-
-    // Update is called once per frame
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             followPlayer = false;
-            playerMovement.setMoving(false);
+            playerMovement.SetMoving(false);
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             followPlayer = true;
-            playerMovement.setMoving(true);
+            playerMovement.SetMoving(true);
         }
 
         if (followPlayer)
@@ -51,10 +50,10 @@ public class CameraFollowing : MonoBehaviour
         Vector3 cameraPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y));
         cameraPos.z = -10;
         Vector3 dir = cameraPos - this.transform.position;
-
+    
         if (player.GetComponent<SpriteRenderer>().isVisible == true)
         {
-            transform.Translate(dir * 2 * Time.deltaTime);
+            transform.Translate(dir * Time.deltaTime);
         }
     }
 }
