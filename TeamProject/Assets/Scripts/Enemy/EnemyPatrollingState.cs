@@ -4,7 +4,7 @@ public class EnemyPatrollingState : EnemyBaseState
 {
     private Vector2 startPosition;
     private Vector2[] patrollPath;
-    private int patrollPathCount = 0;
+    private int currentPathIndex = 0;
     private float speed = 2f;
     public EnemyPatrollingState(Vector2[] patrollPath)
     {
@@ -17,18 +17,21 @@ public class EnemyPatrollingState : EnemyBaseState
     }
     public override void UpdateState()
     {
-        Vector2 targetPoint = startPosition + patrollPath[patrollPathCount];
+        if (patrollPath.Length < 1) { return; }
+
+        Vector2 targetPoint = startPosition + patrollPath[currentPathIndex];
         Vector2 onwerPos = owner.transform.position;
         if (Vector2.Distance(onwerPos, targetPoint) < 0.1)
         {
             owner.transform.position = targetPoint;
-            patrollPathCount++;
+            currentPathIndex++;
 
-            if (patrollPathCount >= patrollPath.Length)
+            if (currentPathIndex >= patrollPath.Length)
             {
                 System.Array.Reverse(patrollPath);
-                patrollPathCount = 0;
+                currentPathIndex = 0;
             }
+            Debug.Log(currentPathIndex);
         }
         else
         {
