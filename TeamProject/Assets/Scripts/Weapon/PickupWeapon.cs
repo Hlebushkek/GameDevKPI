@@ -2,40 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(CircleCollider2D))]
 public class PickupWeapon : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
-    [SerializeField] private WeaponData weapon;
+    [SerializeField] private WeaponScriptable weapon = null;
 
     private PlayerActions player;
-    private void Start()
+    private void Awake()
     {
-        spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        SetWeapon(weapon);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (weapon != null) SetWeapon(weapon);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log(other.name);
         other.TryGetComponent<PlayerActions>(out player);
         
         if (player)
         {
-            player.AddToPickupList(weapon);
+            player.AddToPickupList(this);
         }
     }
     private void OnTriggerExit2D(Collider2D other) {
         if (player)
         {
-            player.RemoveFromPickupList(weapon);
+            player.RemoveFromPickupList(this);
             player = null;
         }
     }
 
-    public void SetWeapon(WeaponData weapon)
+    public void SetWeapon(WeaponScriptable weapon)
     {
         this.weapon = weapon;
+        //Debug.Log(weapon.GetName());
+        //Debug.Log(weapon.GetSprite());
+        //Debug.Log(spriteRenderer);
         spriteRenderer.sprite = weapon.GetSprite();
+    }
+    public WeaponScriptable GetWeapon()
+    {
+        return weapon;
     }
     public void WeaponWasPickedUp()
     {

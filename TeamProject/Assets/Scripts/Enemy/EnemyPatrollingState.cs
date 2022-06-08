@@ -31,7 +31,7 @@ public class EnemyPatrollingState : EnemyBaseState
                 System.Array.Reverse(patrollPath);
                 currentPathIndex = 0;
             }
-            Debug.Log(currentPathIndex);
+           // Debug.Log(currentPathIndex);
         }
         else
         {

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
-    [SerializeField] private WeaponData weapon;
-    [SerializeField] private List<WeaponData> avaliableToPickUpWeapons = new List<WeaponData>();
+    [SerializeField] private WeaponBase weapon;
+    [SerializeField] private List<PickupWeapon> avaliableToPickUpWeapons = new List<PickupWeapon>();
 
     private void Start()
     {
@@ -15,24 +15,33 @@ public class PlayerActions : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F) && avaliableToPickUpWeapons.Count != 0)
         {
-            weapon = avaliableToPickUpWeapons[0];
-            avaliableToPickUpWeapons.RemoveAt(0);
-            NewWeaponWasPickedUp();
+            DropWeapon();
+            weapon = WeaponBase.SetNewWeapon(avaliableToPickUpWeapons[0].GetWeapon());
+            avaliableToPickUpWeapons[0].WeaponWasPickedUp();
+        }
+        if (Input.GetMouseButtonDown(0) && weapon != null)
+        {
+            weapon.Attack();
         }
     }
 
-    /// Weapon Pickups
-    private void NewWeaponWasPickedUp()
-    {
-        Debug.Log("Picked up : ");
-        
-    }
-    public void AddToPickupList(WeaponData weapon)
+    public void AddToPickupList(PickupWeapon weapon)
     {
         avaliableToPickUpWeapons.Add(weapon);
     }
-    public void RemoveFromPickupList(WeaponData weapon)
+    public void RemoveFromPickupList(PickupWeapon weapon)
     {
         avaliableToPickUpWeapons.Remove(weapon);
+    }
+
+    public void DropWeapon()
+    {
+        if (weapon != null)
+        {
+            GameObject dropedWeapon = Resources.Load<GameObject>("WeaponToPickUp");
+            GameObject dropedWeaponGameObj = GameObject.Instantiate<GameObject>(dropedWeapon, this.transform.position, Quaternion.identity);
+            PickupWeapon pickup = dropedWeaponGameObj.GetComponent<PickupWeapon>();
+            pickup.SetWeapon(weapon.GetWeapon());
+        }
     }
 }

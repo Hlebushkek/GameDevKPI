@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Weapon/Standart Weapon", fileName = "New Weapon")]
-public class WeaponData : ScriptableObject
+public class WeaponScriptable : ScriptableObject
 {
     [SerializeField] private Sprite sprite;
 
@@ -16,5 +15,3 @@ public class WeaponData : ScriptableObject
     public int GetWeaponDamage() { return damage; }
     public float GetWeaponAttackSpeed() { return attackSpeed; }
 }
-
-
