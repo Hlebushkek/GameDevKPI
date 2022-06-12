@@ -14,6 +14,7 @@ public abstract class WeaponBase
     {
         this.weapon = weapon;
     }
+    
     public static WeaponBase SetNewWeapon(WeaponScriptable weapon)
     {
         if (weapon.GetType() == typeof(WeaponMeleeScriptable)) { return new WeaponMelee(weapon); }

@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class EnemyDyingState : EnemyBaseState
 {
     public override void EnterState()
@@ -5,7 +7,7 @@ public class EnemyDyingState : EnemyBaseState
         
     }
 
-    public override void OnCollisionEnter()
+    public override void OnTriggerEnter(Collider2D other)
     {
 
     }

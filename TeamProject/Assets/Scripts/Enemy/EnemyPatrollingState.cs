@@ -38,8 +38,10 @@ public class EnemyPatrollingState : EnemyBaseState
             owner.transform.position = Vector2.MoveTowards(onwerPos, targetPoint, Time.deltaTime * speed);
         }
     }
-    public override void OnCollisionEnter()
-    {
-
+    public override void OnTriggerEnter(Collider2D other) {
+        if (other.TryGetComponent<PlayerMovement>(out PlayerMovement player))
+        {
+            owner.SwitchState(owner.AttackingState);
+        }
     }
 }

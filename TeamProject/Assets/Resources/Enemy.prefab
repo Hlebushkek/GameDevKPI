@@ -147,4 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrollPath: []
-  Weapon: 0
+  visionDistance: 8
+  visionAngleDegree: 30
+  visionColliderPoints: 31
+  visionLayers:
+    serializedVersion: 2
+    m_Bits: 64
