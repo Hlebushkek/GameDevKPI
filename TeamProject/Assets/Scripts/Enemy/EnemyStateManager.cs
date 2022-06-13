@@ -5,10 +5,12 @@ public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] private Vector2[] patrollPath;
 
+    [Header("Vision Field")]
     [SerializeField] private float visionDistance = 8;
     [SerializeField] private float visionAngleDegree = 30;
     [SerializeField] private int visionColliderPoints= 31;
     [SerializeField] private LayerMask visionLayers;
+    [SerializeField] private bool shouldDrawVisionRays = false;
     private EdgeCollider2D visionCollider;
 
     [SerializeField] private WeaponBase weapon;
@@ -60,22 +62,26 @@ public class EnemyStateManager : MonoBehaviour
     private void UpdateVisionCollider()
     {
         float startAngel = transform.eulerAngles.z - visionAngleDegree / 2;
+        float del1taAngel = (float)visionAngleDegree / (visionColliderPoints - 2);
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
+
         Vector2[] points = new Vector2[visionColliderPoints];
 
         points[0] = Vector2.zero;
-        for (int i = 1; i <visionColliderPoints-1; i++)
+        for (int i = 1; i < visionColliderPoints - 1; i++)
         {
-            Vector2 rot = Utilities.DegreeToVector2(startAngel + visionAngleDegree / visionColliderPoints * i);
+            Vector2 rot = Utilities.DegreeToVector2(startAngel + del1taAngel * (i-1));
             RaycastHit2D raycast = Physics2D.Raycast(origin, rot, visionDistance, visionLayers);
-            Debug.DrawRay(origin, rot * 4, Color.blue, 10);
+            
             if (raycast.collider)
             {
+                if (shouldDrawVisionRays) Debug.DrawRay(origin, rot * visionDistance, Color.red);
                 points[i] = Utilities.rotateByDegree(raycast.point - origin, -transform.eulerAngles.z);
             }
             else
             {
-                points[i] = new Vector2(-1f + i * 2f / visionColliderPoints, 8);
+                if (shouldDrawVisionRays) Debug.DrawRay(origin, Utilities.DegreeToVector2(transform.eulerAngles.z + -visionAngleDegree / 2 + del1taAngel * (i-1)) * visionDistance, Color.blue);
+                points[i] = Utilities.rotateByDegree(new Vector2(0, visionDistance), -visionAngleDegree / 2 + del1taAngel * (i-1) - 90);
             }
             
         }
