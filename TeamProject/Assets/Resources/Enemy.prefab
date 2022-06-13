@@ -149,7 +149,8 @@ MonoBehaviour:
   patrollPath: []
   visionDistance: 8
   visionAngleDegree: 30
-  visionColliderPoints: 31
+  visionColliderPoints: 30
   visionLayers:
     serializedVersion: 2
     m_Bits: 64
+  shouldDrawVisionRays: 0

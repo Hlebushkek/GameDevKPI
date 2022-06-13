@@ -5,10 +5,12 @@ public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] private Vector2[] patrollPath;
 
+    [SerializeField] private float triggerDistance = 16;
+
     [Header("Vision Field")]
     [SerializeField] private float visionDistance = 8;
     [SerializeField] private float visionAngleDegree = 30;
-    [SerializeField] private int visionColliderPoints= 31;
+    [SerializeField] private int visionColliderPoints= 30;
     [SerializeField] private LayerMask visionLayers;
     [SerializeField] private bool shouldDrawVisionRays = false;
     private EdgeCollider2D visionCollider;
@@ -23,6 +25,8 @@ public class EnemyStateManager : MonoBehaviour
     private void Awake()
     {
         CreateVisionCollider();
+
+        EventManager.OnEnemyAlalrmed += TryGetAlarmed;
 
         PatrollingState = new EnemyPatrollingState(patrollPath);
         AttackingState = new EnemyAttackPlayerState();
@@ -88,5 +92,13 @@ public class EnemyStateManager : MonoBehaviour
         points[visionColliderPoints-1] = Vector2.zero;
 
         visionCollider.points = points;
+    }
+
+    private void TryGetAlarmed(Vector2 triggerPosition)
+    {
+        if (Vector2.Distance(triggerPosition, transform.position) < triggerDistance)
+        {
+            Debug.LogWarning(gameObject.name + " was alarmed");
+        }
     }
 }

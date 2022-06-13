@@ -42,6 +42,7 @@ public class EnemyPatrollingState : EnemyBaseState
         if (other.TryGetComponent<PlayerMovement>(out PlayerMovement player))
         {
             owner.SwitchState(owner.AttackingState);
+            EventManager.AlarmEnemyInRadius(owner.transform.position);
         }
     }
 }
