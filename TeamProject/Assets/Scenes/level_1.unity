@@ -6127,6 +6127,10 @@ PrefabInstance:
       value: Enemy (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5023222137521858180, guid: 313bdade51704d748820e4227a7ce702, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023222137521858180, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -6719,6 +6723,50 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1615637281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1615637283}
+  - component: {fileID: 1615637282}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1615637282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615637281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce407dea1f18ec448d8d2336667c9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1615637283
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615637281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -26.136381, y: 3.5695412, z: -0.9502131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665722926
 GameObject:
   m_ObjectHideFlags: 0
@@ -9356,11 +9404,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.29
+      value: -26
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.99
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9368,7 +9416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.92387956
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9380,7 +9428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.38268343
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -9392,11 +9440,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 45
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 5023222137521858180, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5023222137521858180, guid: 313bdade51704d748820e4227a7ce702, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7291418747861970796, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: shouldDrawVisionRays
