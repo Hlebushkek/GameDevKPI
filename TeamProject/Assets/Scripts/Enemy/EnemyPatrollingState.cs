@@ -41,7 +41,6 @@ public class EnemyPatrollingState : EnemyBaseState
     public override void OnTriggerEnter(Collider2D other) {
         if (other.TryGetComponent<PlayerMovement>(out PlayerMovement player))
         {
-            owner.SwitchState(owner.AttackingState);
             EventManager.AlarmEnemyInRadius(owner.transform.position);
         }
     }

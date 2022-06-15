@@ -98,6 +98,7 @@ public class EnemyStateManager : MonoBehaviour
     {
         if (Vector2.Distance(triggerPosition, transform.position) < triggerDistance)
         {
+            SwitchState(AttackingState);
             Debug.LogWarning(gameObject.name + " was alarmed");
         }
     }
