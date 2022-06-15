@@ -147,8 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22792abd1b8cad44c9cfe14e63d52f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  verticalSpeed: 10
-  horizonatalSpeed: 10
+  movingSpeed: 6
 --- !u!114 &-6393818832127029155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,3 +160,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a672c7623c83a8f46a3075b336e02aff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  avaliableToPickUpWeapons: []
