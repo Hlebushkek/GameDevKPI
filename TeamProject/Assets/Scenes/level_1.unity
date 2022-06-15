@@ -7253,7 +7253,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: a4567a67efc387945a26c827e05580c9, type: 2}
     - target: {fileID: 8230184282886853466, guid: eb12fbf41a4f3a547817f9bd2ad5b506, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8230184282886853466, guid: eb12fbf41a4f3a547817f9bd2ad5b506, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8625,7 +8625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615637281}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26.136381, y: 3.5695412, z: -0.9502131}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11696,6 +11696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ac010e53bc5d44c937c89a8e5eeb04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LOOKUP_DISTANCE: 4
 --- !u!114 &2134891048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11882,7 +11883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6729514882254788651, guid: 156da0dcc973336449a106216f0961dd, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6729514882254788651, guid: 156da0dcc973336449a106216f0961dd, type: 3}
       propertyPath: m_LocalPosition.x
