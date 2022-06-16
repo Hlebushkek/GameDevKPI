@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class WeaponBase
 {
+    protected PlayerActions owner;
     protected WeaponScriptable weapon;
     
     protected WeaponBase()
@@ -15,6 +16,10 @@ public abstract class WeaponBase
         this.weapon = weapon;
     }
     
+    public void SetOwner(PlayerActions owner)
+    {
+        this.owner = owner;
+    }
     public static WeaponBase SetNewWeapon(WeaponScriptable weapon)
     {
         if (weapon.GetType() == typeof(WeaponMeleeScriptable)) { return new WeaponMelee(weapon); }

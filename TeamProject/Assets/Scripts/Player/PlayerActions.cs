@@ -7,6 +7,9 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private WeaponBase weapon;
     [SerializeField] private List<PickupWeapon> avaliableToPickUpWeapons = new List<PickupWeapon>();
 
+    [SerializeField] private Transform shootingPoint;
+    [SerializeField] private Transform meleeAttackPoint;
+
     private void Start()
     {
         
@@ -17,6 +20,7 @@ public class PlayerActions : MonoBehaviour
         {
             DropWeapon();
             weapon = WeaponBase.SetNewWeapon(avaliableToPickUpWeapons[0].GetWeapon());
+            weapon.SetOwner(this);
             avaliableToPickUpWeapons[0].WeaponWasPickedUp();
         }
         if (Input.GetMouseButtonDown(0) && weapon != null)
@@ -43,5 +47,10 @@ public class PlayerActions : MonoBehaviour
             PickupWeapon pickup = dropedWeaponGameObj.GetComponent<PickupWeapon>();
             pickup.SetWeapon(weapon.GetWeapon());
         }
+    }
+
+    public Transform GetShootingPoint()
+    {
+        return shootingPoint;
     }
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(EnemyStats))]
 public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] private Vector2[] patrollPath;
@@ -17,6 +18,7 @@ public class EnemyStateManager : MonoBehaviour
 
     [SerializeField] private WeaponBase weapon;
 
+    public bool canSwitchState = true;
     private EnemyBaseState currentState;
     public EnemyPatrollingState PatrollingState;
     public EnemyAttackPlayerState AttackingState;
@@ -51,6 +53,8 @@ public class EnemyStateManager : MonoBehaviour
 
     public void SwitchState(EnemyBaseState state)
     {
+        if (!canSwitchState) { return; }
+        
         currentState = state;
         currentState.owner = this;
         currentState.EnterState();
