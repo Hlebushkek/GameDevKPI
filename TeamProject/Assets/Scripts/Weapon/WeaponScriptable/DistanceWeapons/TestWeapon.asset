@@ -16,6 +16,6 @@ MonoBehaviour:
   weaponName: TestDistanceWeapon
   damage: 4
   attackSpeed: 4
-  bulletsInShot: 1
+  bulletsInShot: 2
   bulletsMaxCapacity: 30
   bulletsMaxInClip: 10

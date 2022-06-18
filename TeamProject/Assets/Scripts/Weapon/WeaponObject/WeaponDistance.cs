@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponDistance : WeaponBase
 {
     private const float BULLET_FORCE = 40f;
+    private const float BULLET_DELTA_ANGEL = 2;
     private GameObject bulletPref;
     
     public WeaponDistance(WeaponScriptable weapon) : base(weapon)
@@ -15,16 +16,19 @@ public class WeaponDistance : WeaponBase
     {
         WeaponDistanceScriptable weapon = (WeaponDistanceScriptable)this.weapon;
 
+        Transform shootingPoint = owner.GetShootingPoint();
         int bulletsCount = weapon.GetBulletsInShot();
-        
+        Vector2 startVector = Utilities.rotateByDegree(shootingPoint.right, -(float)bulletsCount / 2 * BULLET_DELTA_ANGEL);
+
         for (int i = 0; i < bulletsCount; i++)
         {
-            Transform shootingPoint = owner.GetShootingPoint();
             GameObject bullet = GameObject.Instantiate(bulletPref, shootingPoint.position, shootingPoint.rotation);
             bullet.transform.eulerAngles += new Vector3(0, 0, 90);
+            
             bullet.GetComponent<Bullet>().SetBulletDamage(weapon.GetWeaponDamage());
+
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            rb.AddForce(shootingPoint.right * BULLET_FORCE, ForceMode2D.Impulse);
+            rb.AddForce(Utilities.rotateByDegree(startVector, BULLET_DELTA_ANGEL * i) * BULLET_FORCE, ForceMode2D.Impulse);
         }
     }
     private void Relod()

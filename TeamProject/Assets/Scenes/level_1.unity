@@ -11822,14 +11822,6 @@ PrefabInstance:
       propertyPath: shouldDrawVisionRays
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7291418747861970796, guid: 313bdade51704d748820e4227a7ce702, type: 3}
-      propertyPath: patrollPath.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7291418747861970796, guid: 313bdade51704d748820e4227a7ce702, type: 3}
-      propertyPath: patrollPath.Array.data[1].y
-      value: -8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313bdade51704d748820e4227a7ce702, type: 3}
 --- !u!1001 &1400435609251380779
