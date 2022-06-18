@@ -19,6 +19,7 @@ public class PlayerActions : MonoBehaviour
             DropWeapon();
             weapon = WeaponBase.SetNewWeapon(avaliableToPickUpWeapons[0].GetWeapon());
             weapon.SetOwner(this);
+            playerUI.UpdateUI(weapon.GetWeapon());
             avaliableToPickUpWeapons[0].WeaponWasPickedUp();
         }
         if (Input.GetMouseButtonDown(0) && weapon != null)
