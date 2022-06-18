@@ -16,8 +16,12 @@ public class WeaponDistance : WeaponBase
     {
         WeaponDistanceScriptable weapon = (WeaponDistanceScriptable)this.weapon;
 
-        Transform shootingPoint = owner.GetShootingPoint();
         int bulletsCount = weapon.GetBulletsInShot();
+        int bulletsCurrentAmount = weapon.GetBulletsCurrentAmount();
+        if (bulletsCurrentAmount < 1) { return; }
+        else if(bulletsCurrentAmount < bulletsCount) { bulletsCount = bulletsCurrentAmount;}
+
+        Transform shootingPoint = owner.GetShootingPoint();
         Vector2 startVector = Utilities.rotateByDegree(shootingPoint.right, -(float)bulletsCount / 2 * BULLET_DELTA_ANGEL);
 
         for (int i = 0; i < bulletsCount; i++)
@@ -30,9 +34,11 @@ public class WeaponDistance : WeaponBase
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
             rb.AddForce(Utilities.rotateByDegree(startVector, BULLET_DELTA_ANGEL * i) * BULLET_FORCE, ForceMode2D.Impulse);
         }
+
+        weapon.Reload();
     }
     private void Relod()
     {
-        ((WeaponDistanceScriptable)weapon).Reload();
+        //Delay
     }
 }

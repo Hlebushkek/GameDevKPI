@@ -7,26 +7,28 @@ public class WeaponDistanceScriptable : WeaponScriptable
 {
     [SerializeField] private int bulletsInShot;
     [SerializeField] private int bulletsMaxCapacity;
-    [SerializeField] private int bulletsMaxInClip;
-    private int bulletsCurrentCapacity;
-    private int bulletsCurrentInClip;
+    private int bulletsCurrentAmount;
+
+    public override void GameLaunched()
+    {
+        bulletsCurrentAmount = bulletsMaxCapacity;
+    }
     public int GetBulletsInShot()
     {
         return bulletsInShot;
     }
+    public int GetBulletsMaxCapacity()
+    {
+        return bulletsMaxCapacity;
+    }
+    public int GetBulletsCurrentAmount()
+    {
+        return bulletsCurrentAmount;
+    }
+
     public void Reload()
     {
-        int bulletsNeeded = bulletsMaxInClip - bulletsCurrentInClip;
-        
-        if (bulletsMaxCapacity > bulletsNeeded)
-        {
-            bulletsCurrentInClip = bulletsMaxInClip;
-            bulletsCurrentCapacity -= bulletsNeeded;
-        }
-        else
-        {
-            
-        }
+        bulletsCurrentAmount -= bulletsInShot;
     }
 }
 

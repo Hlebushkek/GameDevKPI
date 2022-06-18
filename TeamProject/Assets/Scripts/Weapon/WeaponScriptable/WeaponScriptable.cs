@@ -10,6 +10,7 @@ public class WeaponScriptable : ScriptableObject
     [SerializeField] private int damage;
     [SerializeField] private float attackSpeed;
     
+    public virtual void GameLaunched() {}
     public Sprite GetSprite() { return sprite; }
     public string GetName() { return weaponName; }
     public int GetWeaponDamage() { return damage; }

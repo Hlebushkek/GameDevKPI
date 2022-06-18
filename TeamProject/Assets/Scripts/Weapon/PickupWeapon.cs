@@ -35,9 +35,7 @@ public class PickupWeapon : MonoBehaviour
     public void SetWeapon(WeaponScriptable weapon)
     {
         this.weapon = weapon;
-        //Debug.Log(weapon.GetName());
-        //Debug.Log(weapon.GetSprite());
-        //Debug.Log(spriteRenderer);
+        weapon.GameLaunched();
         spriteRenderer.sprite = weapon.GetSprite();
     }
     public WeaponScriptable GetWeapon()

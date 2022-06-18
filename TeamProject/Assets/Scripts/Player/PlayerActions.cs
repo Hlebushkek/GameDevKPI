@@ -10,10 +10,8 @@ public class PlayerActions : MonoBehaviour
     [SerializeField] private Transform shootingPoint;
     [SerializeField] private Transform meleeAttackPoint;
 
-    private void Start()
-    {
-        
-    }
+    [SerializeField] private PlayerUIManager playerUI;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && avaliableToPickUpWeapons.Count != 0)
@@ -26,6 +24,7 @@ public class PlayerActions : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && weapon != null)
         {
             weapon.Attack();
+            playerUI.UpdateUI(weapon.GetWeapon());
         }
     }
 
