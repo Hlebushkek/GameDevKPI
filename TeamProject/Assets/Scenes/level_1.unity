@@ -6481,12 +6481,27 @@ MonoBehaviour:
   m_Events:
     m_Signals:
     - {fileID: 11400000, guid: 4b2105439324c8943a4dae1cbb0f6314, type: 2}
+    - {fileID: 11400000, guid: 4f3b7c59e4601de48a9a8faee21ef619, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 621882039}
           m_TargetAssemblyTypeName: CutScene, Assembly-CSharp
           m_MethodName: SetNextReplica
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2134891047}
+          m_TargetAssemblyTypeName: CameraFollowing, Assembly-CSharp
+          m_MethodName: SetTargetToPlayer
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -10446,6 +10461,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &1077738849 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
+  m_PrefabInstance: {fileID: 1077738846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1078921738
 GameObject:
   m_ObjectHideFlags: 0
@@ -20811,7 +20831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: 1
-  target: {fileID: 0}
+  target: {fileID: 1077738849}
   player: {fileID: 0}
 --- !u!114 &2134891048
 MonoBehaviour:

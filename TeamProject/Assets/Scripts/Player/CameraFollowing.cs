@@ -14,7 +14,6 @@ public class CameraFollowing : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         player = playerMovement.transform;
-        target = player;
 
         cam = this.GetComponent<Camera>();
     }
@@ -58,5 +57,10 @@ public class CameraFollowing : MonoBehaviour
         {
             transform.Translate(dir * Time.deltaTime);
         }
+    }
+
+    public void SetTargetToPlayer()
+    {
+        target = player;
     }
 }
