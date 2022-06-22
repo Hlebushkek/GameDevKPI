@@ -6398,6 +6398,7 @@ GameObject:
   - component: {fileID: 621882039}
   - component: {fileID: 621882040}
   - component: {fileID: 621882041}
+  - component: {fileID: 621882042}
   m_Layer: 0
   m_Name: CutSceneManager
   m_TagString: Untagged
@@ -6461,6 +6462,8 @@ PlayableDirector:
     value: {fileID: 1848024983}
   - key: {fileID: -6592525205915154909, guid: efdbf00b12c35e14a888410584aa6fd7, type: 2}
     value: {fileID: 2134891050}
+  - key: {fileID: 4170741002163767207, guid: efdbf00b12c35e14a888410584aa6fd7, type: 2}
+    value: {fileID: 621882042}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &621882041
@@ -6493,6 +6496,26 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!95 &621882042
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621882037}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &633194707
 GameObject:
   m_ObjectHideFlags: 0
@@ -10423,11 +10446,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!4 &1077738854 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3729667467917379414, guid: 313bdade51704d748820e4227a7ce702, type: 3}
-  m_PrefabInstance: {fileID: 1077738846}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1078921738
 GameObject:
   m_ObjectHideFlags: 0
@@ -19367,7 +19385,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19384,15 +19402,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
