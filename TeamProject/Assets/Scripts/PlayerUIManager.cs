@@ -1,11 +1,14 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerUIManager : MonoBehaviour
 {
+    private Animator uiAnimator;
     [SerializeField] private TMPro.TextMeshProUGUI bulletsText;
+    [SerializeField] private Image blackPanelImage;
 
     private void Awake()
     {
+        uiAnimator = GetComponent<Animator>();
         bulletsText.enabled = false;
     }
 
@@ -24,5 +27,10 @@ public class PlayerUIManager : MonoBehaviour
         {
             bulletsText.enabled = false;
         }
+    }
+
+    public void ShowTransitionAnim()
+    {
+        uiAnimator.SetTrigger("StartTransitionAnim");
     }
 }

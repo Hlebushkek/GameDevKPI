@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
         ProcessInputs();
 
         TryMove();
-
         TryRotate();
     }
 

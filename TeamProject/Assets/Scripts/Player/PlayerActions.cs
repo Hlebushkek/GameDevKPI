@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerActions : MonoBehaviour
 {
+    private Animator playerAnimator;
+
     [SerializeField] private WeaponBase weapon;
     [SerializeField] private List<PickupWeapon> avaliableToPickUpWeapons = new List<PickupWeapon>();
 
@@ -12,6 +14,9 @@ public class PlayerActions : MonoBehaviour
 
     [SerializeField] private PlayerUIManager playerUI;
 
+    private void Awake() {
+        playerAnimator = GetComponent<Animator>();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F) && avaliableToPickUpWeapons.Count != 0)
@@ -21,6 +26,9 @@ public class PlayerActions : MonoBehaviour
             weapon.SetOwner(this);
             playerUI.UpdateUI(weapon.GetWeapon());
             avaliableToPickUpWeapons[0].WeaponWasPickedUp();
+
+            if (weapon.GetType() == typeof(WeaponDistance)) playerAnimator.SetBool("HasDistanceWeapon", true);
+            if (weapon.GetType() == typeof(WeaponDistance)) playerAnimator.SetBool("HasMeleeWeapon", true);
         }
         if (Input.GetMouseButtonDown(0) && weapon != null)
         {
@@ -46,6 +54,9 @@ public class PlayerActions : MonoBehaviour
             GameObject dropedWeaponGameObj = GameObject.Instantiate<GameObject>(dropedWeapon, this.transform.position, Quaternion.identity);
             PickupWeapon pickup = dropedWeaponGameObj.GetComponent<PickupWeapon>();
             pickup.SetWeapon(weapon.GetWeapon());
+
+            playerAnimator.SetBool("HasDistanceWeapon", false);
+            playerAnimator.SetBool("HasMeleeWeapon", false);
         }
     }
 
