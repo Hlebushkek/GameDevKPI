@@ -49,6 +49,8 @@ public class EnemyStateManager : MonoBehaviour
         UpdateVisionCollider();
     }
     private void OnTriggerEnter2D(Collider2D other) {
+        if (!enabled) return;
+        
         currentState.OnTriggerEnter(other);
     }
 
