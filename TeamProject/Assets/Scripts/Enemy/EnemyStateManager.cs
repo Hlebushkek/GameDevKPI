@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] private Vector2[] patrollPath;
+    [SerializeField] private float[] patrollZRotation;
 
     [SerializeField] private float triggerDistance = 16;
 
@@ -30,7 +31,7 @@ public class EnemyStateManager : MonoBehaviour
 
         EventManager.OnEnemyAlalrmed += TryGetAlarmed;
 
-        PatrollingState = new EnemyPatrollingState(patrollPath);
+        PatrollingState = new EnemyPatrollingState(patrollPath, patrollZRotation);
         AttackingState = new EnemyAttackPlayerState();
         DyingState = new EnemyDyingState();
     }

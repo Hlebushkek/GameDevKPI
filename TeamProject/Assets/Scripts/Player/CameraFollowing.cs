@@ -3,8 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraFollowing : MonoBehaviour
 {
-    private bool followPlayer = true;
-    private Transform player;
+    [SerializeField] private bool followTarget = true;
+    [SerializeField] private Transform target;
+    [SerializeField] private Transform player;
+    
     private PlayerMovement playerMovement;
     private Camera cam;
 
@@ -12,6 +14,7 @@ public class CameraFollowing : MonoBehaviour
     {
         playerMovement = FindObjectOfType<PlayerMovement>();
         player = playerMovement.transform;
+        target = player;
 
         cam = this.GetComponent<Camera>();
     }
@@ -20,18 +23,18 @@ public class CameraFollowing : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            followPlayer = false;
+            followTarget = false;
             playerMovement.SetMoving(false);
         }
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            followPlayer = true;
+            followTarget = true;
             playerMovement.SetMoving(true);
         }
 
-        if (followPlayer)
+        if (followTarget)
         {
-            FollowPlayer();
+            FollowTarget();
         }
         else
         {
@@ -39,9 +42,9 @@ public class CameraFollowing : MonoBehaviour
         }
     }
 
-    private void FollowPlayer()
+    private void FollowTarget()
     {
-        Vector3 newPos = new Vector3(player.position.x, player.position.y, this.transform.position.z);
+        Vector3 newPos = new Vector3(target.position.x, target.position.y, this.transform.position.z);
         this.transform.position = newPos;
     }
 
