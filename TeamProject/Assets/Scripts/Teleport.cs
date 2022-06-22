@@ -5,7 +5,7 @@ using UnityEngine;
 public class Teleport : MonoBehaviour
 {
     [SerializeField] private PlayerUIManager playerUIManager;
-    [SerializeField] private float transitionTime = 1f;
+    [SerializeField] private float transitionTime = 1f + 0.1f;
     [SerializeField] private GameObject pointTeleport;
 
     private void OnTriggerEnter2D(Collider2D collision)
