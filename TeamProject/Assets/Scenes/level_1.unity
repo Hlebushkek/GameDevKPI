@@ -37262,10 +37262,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6491457202906794364, guid: eb12fbf41a4f3a547817f9bd2ad5b506, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6739690607219549380, guid: eb12fbf41a4f3a547817f9bd2ad5b506, type: 3}
       propertyPath: m_Name
       value: WeaponToPickUp (1)
@@ -39638,10 +39634,6 @@ PrefabInstance:
     - target: {fileID: 5023222137521858180, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6829623647781524895, guid: 313bdade51704d748820e4227a7ce702, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7291418747861970796, guid: 313bdade51704d748820e4227a7ce702, type: 3}
       propertyPath: patrollPath.Array.size
@@ -60085,10 +60077,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6829623647781524895, guid: 313bdade51704d748820e4227a7ce702, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 313bdade51704d748820e4227a7ce702, type: 3}
 --- !u!1001 &1400435609251380779
@@ -60098,10 +60086,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6491457202906794364, guid: eb12fbf41a4f3a547817f9bd2ad5b506, type: 3}
-      propertyPath: m_SortingOrder
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 6739690607219549380, guid: eb12fbf41a4f3a547817f9bd2ad5b506, type: 3}
       propertyPath: m_Name
       value: WeaponToPickUp
@@ -60234,10 +60218,6 @@ PrefabInstance:
     - target: {fileID: 6729514882254788650, guid: 156da0dcc973336449a106216f0961dd, type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6729514882254788650, guid: 156da0dcc973336449a106216f0961dd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6729514882254788651, guid: 156da0dcc973336449a106216f0961dd, type: 3}
       propertyPath: m_RootOrder
