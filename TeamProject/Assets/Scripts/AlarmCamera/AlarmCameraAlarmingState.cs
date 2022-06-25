@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class AlarmCameraAlarmingState : IAlarmCameraBase
 {
+    private AlarmCameraStateManager manager;
+
+    public AlarmCameraAlarmingState(AlarmCameraStateManager manager)
+    {
+        this.manager = manager;
+    }
     public void EnterState()
     {
         
@@ -22,5 +28,10 @@ public class AlarmCameraAlarmingState : IAlarmCameraBase
     public void OnTriggerEnter2D(Collider2D other)
     {
         
+    }
+
+    private void EndAlarming()
+    {
+        manager.SwitchState(new AlarmCameraPatrolingState(manager));
     }
 }

@@ -40,7 +40,7 @@ public class AlarmCameraPatrolingState : IAlarmCameraBase
             EventManager.AlarmEnemyInRadius(manager.transform.position);
         }
 
-        manager.SwitchState(new AlarmCameraAlarmingState());
+        manager.SwitchState(new AlarmCameraAlarmingState(manager));
     }
 
 
